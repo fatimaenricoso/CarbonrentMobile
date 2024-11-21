@@ -1,0 +1,968 @@
+<libraries>
+  <library
+      name="__local_aars__:C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android\app\build\intermediates\flutter\release\libs.jar:unspecified@jar"
+      jars="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android\app\build\intermediates\flutter\release\libs.jar"
+      resolved="__local_aars__:C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android\app\build\intermediates\flutter\release\libs.jar:unspecified"/>
+  <library
+      name="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android@@:cloud_firestore::release"
+      jars="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\cloud_firestore-5.4.4\android\build\.transforms\94feec6a7a33a8a0b47f3d8ed2262f4f\transformed\out\jars\classes.jar;C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\cloud_firestore-5.4.4\android\build\.transforms\94feec6a7a33a8a0b47f3d8ed2262f4f\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.firebase.cloudfirestore:cloud_firestore:unspecified"
+      folder="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\cloud_firestore-5.4.4\android\build\.transforms\94feec6a7a33a8a0b47f3d8ed2262f4f\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android@@:file_picker::release"
+      jars="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-5.5.0\android\build\.transforms\78ad8e2e1c7311e4ec22a319876cd4a0\transformed\out\jars\classes.jar;C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-5.5.0\android\build\.transforms\78ad8e2e1c7311e4ec22a319876cd4a0\transformed\out\jars\libs\R.jar"
+      resolved="com.mr.flutter.plugin.filepicker:file_picker:unspecified"
+      folder="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-5.5.0\android\build\.transforms\78ad8e2e1c7311e4ec22a319876cd4a0\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android@@:firebase_auth::release"
+      jars="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.3.1\android\build\.transforms\c4866f2230d6438a7ff7c0e7029d84e5\transformed\out\jars\classes.jar;C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.3.1\android\build\.transforms\c4866f2230d6438a7ff7c0e7029d84e5\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.firebase.auth:firebase_auth:unspecified"
+      folder="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.3.1\android\build\.transforms\c4866f2230d6438a7ff7c0e7029d84e5\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android@@:firebase_dynamic_links::release"
+      jars="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-6.0.8\android\build\.transforms\c94a099ec34e42f1b0a53f348037eab5\transformed\out\jars\classes.jar;C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-6.0.8\android\build\.transforms\c94a099ec34e42f1b0a53f348037eab5\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.firebase.dynamiclinks:firebase_dynamic_links:unspecified"
+      folder="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-6.0.8\android\build\.transforms\c94a099ec34e42f1b0a53f348037eab5\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android@@:firebase_storage::release"
+      jars="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_storage-12.3.2\android\build\.transforms\7296ed555239f2d99fc5f9c324052847\transformed\out\jars\classes.jar;C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_storage-12.3.2\android\build\.transforms\7296ed555239f2d99fc5f9c324052847\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.firebase.storage:firebase_storage:unspecified"
+      folder="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_storage-12.3.2\android\build\.transforms\7296ed555239f2d99fc5f9c324052847\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android@@:firebase_core::release"
+      jars="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.6.0\android\build\.transforms\7e09e114a3089cabe79a95458fcdc430\transformed\out\jars\classes.jar;C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.6.0\android\build\.transforms\7e09e114a3089cabe79a95458fcdc430\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.firebase.core:firebase_core:unspecified"
+      folder="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.6.0\android\build\.transforms\7e09e114a3089cabe79a95458fcdc430\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android@@:flutter_plugin_android_lifecycle::release"
+      jars="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.22\android\build\.transforms\5a88a429865a65e20ae5851b2ce7c584\transformed\out\jars\classes.jar;C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.22\android\build\.transforms\5a88a429865a65e20ae5851b2ce7c584\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:unspecified"
+      folder="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.22\android\build\.transforms\5a88a429865a65e20ae5851b2ce7c584\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\FATIMA ENRICOSO\Desktop\capstone\ambulantcollector\android@@:image_picker_android::release"
+      jars="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+14\android\build\.transforms\b6f6a25bec50635ca8da30fd1ecaf928\transformed\out\jars\classes.jar;C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+14\android\build\.transforms\b6f6a25bec50635ca8da30fd1ecaf928\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.imagepicker:image_picker_android:unspecified"
+      folder="C:\Users\FATIMA ENRICOSO\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+14\android\build\.transforms\b6f6a25bec50635ca8da30fd1ecaf928\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="io.flutter:flutter_embedding_release:1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.flutter\flutter_embedding_release\1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1\ee7a5f1c2fe68c1eeb389a7ac73c9e83d0dbfc79\flutter_embedding_release-1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1.jar"
+      resolved="io.flutter:flutter_embedding_release:1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1"/>
+  <library
+      name="androidx.fragment:fragment:1.7.1@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\6d10a8bb8c4c45ae15529e3e2fbb0a73\transformed\fragment-1.7.1\jars\classes.jar"
+      resolved="androidx.fragment:fragment:1.7.1"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\6d10a8bb8c4c45ae15529e3e2fbb0a73\transformed\fragment-1.7.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.activity:activity:1.9.2@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\f95e8154345df6e3480c4c37381d2154\transformed\jetified-activity-1.9.2\jars\classes.jar"
+      resolved="androidx.activity:activity:1.9.2"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\f95e8154345df6e3480c4c37381d2154\transformed\jetified-activity-1.9.2"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.loader:loader:1.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\3f82e8534b7f46c2fea67b1e72da64e6\transformed\loader-1.0.0\jars\classes.jar"
+      resolved="androidx.loader:loader:1.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\3f82e8534b7f46c2fea67b1e72da64e6\transformed\loader-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\fe63aa7a33fb2593c4593b1729425285\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\fe63aa7a33fb2593c4593b1729425285\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-livedata:2.7.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a606a4dc9e4023921c3d4475431c1be7\transformed\lifecycle-livedata-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata:2.7.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a606a4dc9e4023921c3d4475431c1be7\transformed\lifecycle-livedata-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\504015afcbc8bad21d74f49d30d572d7\transformed\lifecycle-viewmodel-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-viewmodel:2.7.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\504015afcbc8bad21d74f49d30d572d7\transformed\lifecycle-viewmodel-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\dd89682630ea9aaced0d26bcf81ec25a\transformed\lifecycle-livedata-core-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata-core:2.7.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\dd89682630ea9aaced0d26bcf81ec25a\transformed\lifecycle-livedata-core-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\df38a82cb304500c59c0dad7ac88176d\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\df38a82cb304500c59c0dad7ac88176d\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.core:core-ktx:1.13.1@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a7b1dc775fe77558f9999aba5fe80d69\transformed\jetified-core-ktx-1.13.1\jars\classes.jar"
+      resolved="androidx.core:core-ktx:1.13.1"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a7b1dc775fe77558f9999aba5fe80d69\transformed\jetified-core-ktx-1.13.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.viewpager:viewpager:1.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\5d880d296ac71222df0cdcf6e76750c0\transformed\viewpager-1.0.0\jars\classes.jar"
+      resolved="androidx.viewpager:viewpager:1.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\5d880d296ac71222df0cdcf6e76750c0\transformed\viewpager-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.customview:customview:1.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\97ce449d805ea5e83e49efdfa37b20a3\transformed\customview-1.0.0\jars\classes.jar"
+      resolved="androidx.customview:customview:1.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\97ce449d805ea5e83e49efdfa37b20a3\transformed\customview-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.core:core:1.13.1@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\5cdbe69f11866466d760c8a27161ef86\transformed\core-1.13.1\jars\classes.jar"
+      resolved="androidx.core:core:1.13.1"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\5cdbe69f11866466d760c8a27161ef86\transformed\core-1.13.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-runtime:2.7.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\5623f923459a447f6ebfb11a991efb39\transformed\lifecycle-runtime-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-runtime:2.7.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\5623f923459a447f6ebfb11a991efb39\transformed\lifecycle-runtime-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-process:2.7.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\fcd93a28da5ce5be2c43e223e9759c70\transformed\jetified-lifecycle-process-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-process:2.7.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\fcd93a28da5ce5be2c43e223e9759c70\transformed\jetified-lifecycle-process-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-common-java8:2.7.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common-java8\2.7.0\2ad14aed781c4a73ed4dbb421966d408a0a06686\lifecycle-common-java8-2.7.0.jar"
+      resolved="androidx.lifecycle:lifecycle-common-java8:2.7.0"/>
+  <library
+      name="androidx.lifecycle:lifecycle-common:2.7.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common\2.7.0\85334205d65cca70ed0109c3acbd29e22a2d9cb1\lifecycle-common-2.7.0.jar"
+      resolved="androidx.lifecycle:lifecycle-common:2.7.0"/>
+  <library
+      name="androidx.window:window-java:1.2.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\59220cda410503d362fa568a367a1958\transformed\jetified-window-java-1.2.0\jars\classes.jar"
+      resolved="androidx.window:window-java:1.2.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\59220cda410503d362fa568a367a1958\transformed\jetified-window-java-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.window:window:1.2.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\70c7e6975da6e1514d3500dc7730ab0a\transformed\jetified-window-1.2.0\jars\classes.jar"
+      resolved="androidx.window:window:1.2.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\70c7e6975da6e1514d3500dc7730ab0a\transformed\jetified-window-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-core-jvm\1.7.3\2b09627576f0989a436a00a4a54b55fa5026fb86\kotlinx-coroutines-core-jvm-1.7.3.jar"
+      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3"/>
+  <library
+      name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-android\1.7.3\38d9cad3a0b03a10453b56577984bdeb48edeed5\kotlinx-coroutines-android-1.7.3.jar"
+      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.8.22\b25c86d47d6b962b9cf0f8c3f320c8a10eea3dd1\kotlin-stdlib-jdk8-1.8.22.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"/>
+  <library
+      name="io.flutter:armeabi_v7a_release:1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.flutter\armeabi_v7a_release\1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1\f7b9a38b5ca20f78f36dc79d5d575b711c7a957b\armeabi_v7a_release-1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1.jar"
+      resolved="io.flutter:armeabi_v7a_release:1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1"/>
+  <library
+      name="io.flutter:arm64_v8a_release:1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.flutter\arm64_v8a_release\1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1\138db0e7eeedf8acef72c5d82fdbdf03981f0c7a\arm64_v8a_release-1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1.jar"
+      resolved="io.flutter:arm64_v8a_release:1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1"/>
+  <library
+      name="io.flutter:x86_64_release:1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.flutter\x86_64_release\1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1\457a71925bd448da221d2032c44a2b4faad12206\x86_64_release-1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1.jar"
+      resolved="io.flutter:x86_64_release:1.0.0-a6bd3f1de158bb61090e0c8053df93a10cb548e1"/>
+  <library
+      name="androidx.versionedparcelable:versionedparcelable:1.1.1@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\978b1ef9b8367e5e584e05d6ad2d62b0\transformed\versionedparcelable-1.1.1\jars\classes.jar"
+      resolved="androidx.versionedparcelable:versionedparcelable:1.1.1"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\978b1ef9b8367e5e584e05d6ad2d62b0\transformed\versionedparcelable-1.1.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.collection:collection:1.1.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\androidx.collection\collection\1.1.0\1f27220b47669781457de0d600849a5de0e89909\collection-1.1.0.jar"
+      resolved="androidx.collection:collection:1.1.0"/>
+  <library
+      name="androidx.arch.core:core-runtime:2.2.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\40b97d94b2360dd73a7a9cdd8ac9d7ed\transformed\core-runtime-2.2.0\jars\classes.jar"
+      resolved="androidx.arch.core:core-runtime:2.2.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\40b97d94b2360dd73a7a9cdd8ac9d7ed\transformed\core-runtime-2.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.arch.core:core-common:2.2.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\androidx.arch.core\core-common\2.2.0\5e1b8b81dfd5f52c56a8d53b18ca759c19a301f3\core-common-2.2.0.jar"
+      resolved="androidx.arch.core:core-common:2.2.0"/>
+  <library
+      name="androidx.savedstate:savedstate:1.2.1@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\d96751d4e18dbf7d7405c8412c15f689\transformed\jetified-savedstate-1.2.1\jars\classes.jar"
+      resolved="androidx.savedstate:savedstate:1.2.1"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\d96751d4e18dbf7d7405c8412c15f689\transformed\jetified-savedstate-1.2.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.annotation:annotation-jvm:1.8.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\androidx.annotation\annotation-jvm\1.8.2\b8a16fe526014b7941c1debaccaf9c5153692dbb\annotation-jvm-1.8.2.jar"
+      resolved="androidx.annotation:annotation-jvm:1.8.2"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.8.22\4dabb8248310d833bb6a8b516024a91fd3d275c\kotlin-stdlib-jdk7-1.8.22.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"/>
+  <library
+      name="androidx.annotation:annotation-experimental:1.4.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\c0ebefd9f054e630863ae6978726565e\transformed\jetified-annotation-experimental-1.4.0\jars\classes.jar"
+      resolved="androidx.annotation:annotation-experimental:1.4.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\c0ebefd9f054e630863ae6978726565e\transformed\jetified-annotation-experimental-1.4.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.8.22\636bf8b320e7627482771bbac9ed7246773c02bd\kotlin-stdlib-1.8.22.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib:1.8.22"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.8.22\1a8e3601703ae14bb58757ea6b2d8e8e5935a586\kotlin-stdlib-common-1.8.22.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22"/>
+  <library
+      name="org.jetbrains:annotations:23.0.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\23.0.0\8cc20c07506ec18e0834947b84a864bfc094484e\annotations-23.0.0.jar"
+      resolved="org.jetbrains:annotations:23.0.0"/>
+  <library
+      name="androidx.startup:startup-runtime:1.1.1@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\55cc46865ec6cf4c26b59ac1a70ea151\transformed\jetified-startup-runtime-1.1.1\jars\classes.jar"
+      resolved="androidx.startup:startup-runtime:1.1.1"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\55cc46865ec6cf4c26b59ac1a70ea151\transformed\jetified-startup-runtime-1.1.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.tracing:tracing:1.2.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\bd299ffcbd211d6ef51f531f2902a917\transformed\jetified-tracing-1.2.0\jars\classes.jar"
+      resolved="androidx.tracing:tracing:1.2.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\bd299ffcbd211d6ef51f531f2902a917\transformed\jetified-tracing-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-auth:23.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\69e628b70da89946d196a4d7869d6805\transformed\jetified-firebase-auth-23.0.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-auth:23.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\69e628b70da89946d196a4d7869d6805\transformed\jetified-firebase-auth-23.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-firestore:25.1.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\b630cce113763ce6a95ddea1c25c9145\transformed\jetified-firebase-firestore-25.1.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-firestore:25.1.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\b630cce113763ce6a95ddea1c25c9145\transformed\jetified-firebase-firestore-25.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-dynamic-links:22.1.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\d2574b9c733e28f4515653243cac87ad\transformed\jetified-firebase-dynamic-links-22.1.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-dynamic-links:22.1.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\d2574b9c733e28f4515653243cac87ad\transformed\jetified-firebase-dynamic-links-22.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-storage:21.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\c980dfdd5144c6ffcd24322c37f2c9f6\transformed\jetified-firebase-storage-21.0.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-storage:21.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\c980dfdd5144c6ffcd24322c37f2c9f6\transformed\jetified-firebase-storage-21.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-appcheck:18.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\94ea371286469bddf735ced11fee466d\transformed\jetified-firebase-appcheck-18.0.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-appcheck:18.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\94ea371286469bddf735ced11fee466d\transformed\jetified-firebase-appcheck-18.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-common-ktx:21.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\97f66dafcc3a95a8b2856d4bc4a1de1a\transformed\jetified-firebase-common-ktx-21.0.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-common-ktx:21.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\97f66dafcc3a95a8b2856d4bc4a1de1a\transformed\jetified-firebase-common-ktx-21.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.credentials:credentials:1.2.0-rc01@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\1047698ba32fc730a8a7e358311775c2\transformed\jetified-credentials-1.2.0-rc01\jars\classes.jar"
+      resolved="androidx.credentials:credentials:1.2.0-rc01"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\1047698ba32fc730a8a7e358311775c2\transformed\jetified-credentials-1.2.0-rc01"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.credentials:credentials-play-services-auth:1.2.0-rc01@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\db82560c842d2c7855db1582a48a2a59\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\jars\classes.jar"
+      resolved="androidx.credentials:credentials-play-services-auth:1.2.0-rc01"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\db82560c842d2c7855db1582a48a2a59\transformed\jetified-credentials-play-services-auth-1.2.0-rc01"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.libraries.identity.googleid:googleid:1.1.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\95f090d09c1a11d34eebc5cfc644c3ba\transformed\jetified-googleid-1.1.0\jars\classes.jar"
+      resolved="com.google.android.libraries.identity.googleid:googleid:1.1.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\95f090d09c1a11d34eebc5cfc644c3ba\transformed\jetified-googleid-1.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-auth-interop:20.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\1860b76a09b0b91792671f287fc4fdc1\transformed\jetified-firebase-auth-interop-20.0.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-auth-interop:20.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\1860b76a09b0b91792671f287fc4fdc1\transformed\jetified-firebase-auth-interop-20.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-common:21.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\8d4b1cb8fedd76dd523fcaf35fd2618c\transformed\jetified-firebase-common-21.0.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-common:21.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\8d4b1cb8fedd76dd523fcaf35fd2618c\transformed\jetified-firebase-common-21.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.gms:play-services-auth:20.7.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\b981f16c8ac18f47725e112adb211ee6\transformed\jetified-play-services-auth-20.7.0\jars\classes.jar"
+      resolved="com.google.android.gms:play-services-auth:20.7.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\b981f16c8ac18f47725e112adb211ee6\transformed\jetified-play-services-auth-20.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.gms:play-services-auth-api-phone:18.0.2@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\b7ac1f59f040801527880eb914e357eb\transformed\jetified-play-services-auth-api-phone-18.0.2\jars\classes.jar"
+      resolved="com.google.android.gms:play-services-auth-api-phone:18.0.2"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\b7ac1f59f040801527880eb914e357eb\transformed\jetified-play-services-auth-api-phone-18.0.2"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.recaptcha:recaptcha:18.4.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\7f9489830a785d88ba51426b66279013\transformed\jetified-recaptcha-18.4.0\jars\classes.jar"
+      resolved="com.google.android.recaptcha:recaptcha:18.4.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\7f9489830a785d88ba51426b66279013\transformed\jetified-recaptcha-18.4.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.play:integrity:1.2.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\fbe8fccbd7ff4d53328fe972135afa45\transformed\jetified-integrity-1.2.0\jars\classes.jar"
+      resolved="com.google.android.play:integrity:1.2.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\fbe8fccbd7ff4d53328fe972135afa45\transformed\jetified-integrity-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-appcheck-interop:17.1.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\670c89a482c31ca6278ce615e77abfc3\transformed\jetified-firebase-appcheck-interop-17.1.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-appcheck-interop:17.1.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\670c89a482c31ca6278ce615e77abfc3\transformed\jetified-firebase-appcheck-interop-17.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.gms:play-services-fido:20.1.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\3a41a6b0f019586afcf66a77c03548d3\transformed\jetified-play-services-fido-20.1.0\jars\classes.jar"
+      resolved="com.google.android.gms:play-services-fido:20.1.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\3a41a6b0f019586afcf66a77c03548d3\transformed\jetified-play-services-fido-20.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-play-services\1.7.3\7087d47913cfb0062c9909dacbfc78fe44c5ecff\kotlinx-coroutines-play-services-1.7.3.jar"
+      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3"/>
+  <library
+      name="com.google.firebase:firebase-database-collection:18.0.1@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\988009e865ee349db25ce3ef81bbfbb6\transformed\jetified-firebase-database-collection-18.0.1\jars\classes.jar"
+      resolved="com.google.firebase:firebase-database-collection:18.0.1"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\988009e865ee349db25ce3ef81bbfbb6\transformed\jetified-firebase-database-collection-18.0.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.gms:play-services-auth-base:18.0.4@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\349cb7aad20c40358fa6f43d8a94642f\transformed\jetified-play-services-auth-base-18.0.4\jars\classes.jar"
+      resolved="com.google.android.gms:play-services-auth-base:18.0.4"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\349cb7aad20c40358fa6f43d8a94642f\transformed\jetified-play-services-auth-base-18.0.4"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.gms:play-services-base:18.1.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a536cee45c1b25c1294c94456b5b0580\transformed\jetified-play-services-base-18.1.0\jars\classes.jar"
+      resolved="com.google.android.gms:play-services-base:18.1.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a536cee45c1b25c1294c94456b5b0580\transformed\jetified-play-services-base-18.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.gms:play-services-tasks:18.1.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\e389960847384804af7996299b6ffc28\transformed\jetified-play-services-tasks-18.1.0\jars\classes.jar"
+      resolved="com.google.android.gms:play-services-tasks:18.1.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\e389960847384804af7996299b6ffc28\transformed\jetified-play-services-tasks-18.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-measurement-connector:19.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\205130675f0d6af1dfe2817d7abbf322\transformed\jetified-firebase-measurement-connector-19.0.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-measurement-connector:19.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\205130675f0d6af1dfe2817d7abbf322\transformed\jetified-firebase-measurement-connector-19.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.gms:play-services-basement:18.3.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\967b49b1f932b640b7166ccbd5f12cb7\transformed\jetified-play-services-basement-18.3.0\jars\classes.jar"
+      resolved="com.google.android.gms:play-services-basement:18.3.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\967b49b1f932b640b7166ccbd5f12cb7\transformed\jetified-play-services-basement-18.3.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.browser:browser:1.4.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\157140f977be644df5072a0d280f4b14\transformed\browser-1.4.0\jars\classes.jar"
+      resolved="androidx.browser:browser:1.4.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\157140f977be644df5072a0d280f4b14\transformed\browser-1.4.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="io.grpc:grpc-okhttp:1.62.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.grpc\grpc-okhttp\1.62.2\2d8b802e7fe17c1577527195fd53a2e7355b3541\grpc-okhttp-1.62.2.jar"
+      resolved="io.grpc:grpc-okhttp:1.62.2"/>
+  <library
+      name="com.squareup.okio:okio-jvm:3.4.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio-jvm\3.4.0\4e8bd78a52ab935ce383d0092646922154295e54\okio-jvm-3.4.0.jar"
+      resolved="com.squareup.okio:okio-jvm:3.4.0"/>
+  <library
+      name="androidx.exifinterface:exifinterface:1.3.7@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\f1c94046af1abf78647b16b82962369f\transformed\exifinterface-1.3.7\jars\classes.jar"
+      resolved="androidx.exifinterface:exifinterface:1.3.7"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\f1c94046af1abf78647b16b82962369f\transformed\exifinterface-1.3.7"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.profileinstaller:profileinstaller:1.3.1@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a135ea72cf3825d8cff6eada9bba2cfb\transformed\jetified-profileinstaller-1.3.1\jars\classes.jar"
+      resolved="androidx.profileinstaller:profileinstaller:1.3.1"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a135ea72cf3825d8cff6eada9bba2cfb\transformed\jetified-profileinstaller-1.3.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.interpolator:interpolator:1.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a2fa9b31af5159b8b7705faf49105ac7\transformed\interpolator-1.0.0\jars\classes.jar"
+      resolved="androidx.interpolator:interpolator:1.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\a2fa9b31af5159b8b7705faf49105ac7\transformed\interpolator-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\c62245a2bdeb4ff3f91f63ef2bd4c50a\transformed\localbroadcastmanager-1.0.0\jars\classes.jar"
+      resolved="androidx.localbroadcastmanager:localbroadcastmanager:1.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\c62245a2bdeb4ff3f91f63ef2bd4c50a\transformed\localbroadcastmanager-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-components:18.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\8b97f7ba3db9aa92814b418cad8effab\transformed\jetified-firebase-components-18.0.0\jars\classes.jar"
+      resolved="com.google.firebase:firebase-components:18.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\8b97f7ba3db9aa92814b418cad8effab\transformed\jetified-firebase-components-18.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.concurrent:concurrent-futures:1.1.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\androidx.concurrent\concurrent-futures\1.1.0\50b7fb98350d5f42a4e49704b03278542293ba48\concurrent-futures-1.1.0.jar"
+      resolved="androidx.concurrent:concurrent-futures:1.1.0"/>
+  <library
+      name="androidx.window.extensions.core:core:1.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\7e070005c88600e59b642db75278141d\transformed\jetified-core-1.0.0\jars\classes.jar"
+      resolved="androidx.window.extensions.core:core:1.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\7e070005c88600e59b642db75278141d\transformed\jetified-core-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-annotations:16.2.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.firebase\firebase-annotations\16.2.0\ba0806703ca285d03fa9c888b5868f101134a501\firebase-annotations-16.2.0.jar"
+      resolved="com.google.firebase:firebase-annotations:16.2.0"/>
+  <library
+      name="com.google.firebase:protolite-well-known-types:18.0.0@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\36d3a47e59052106a23009ef6ecb72bb\transformed\jetified-protolite-well-known-types-18.0.0\jars\classes.jar"
+      resolved="com.google.firebase:protolite-well-known-types:18.0.0"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\36d3a47e59052106a23009ef6ecb72bb\transformed\jetified-protolite-well-known-types-18.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="io.grpc:grpc-android:1.62.2@aar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\fa21b09cec07b486b6b2cb4804a4b669\transformed\jetified-grpc-android-1.62.2\jars\classes.jar"
+      resolved="io.grpc:grpc-android:1.62.2"
+      folder="C:\Users\FATIMA ENRICOSO\.gradle\caches\transforms-3\fa21b09cec07b486b6b2cb4804a4b669\transformed\jetified-grpc-android-1.62.2"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="io.grpc:grpc-protobuf-lite:1.62.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.grpc\grpc-protobuf-lite\1.62.2\9d807d2a0e34bd7284a5336186f57cf241090920\grpc-protobuf-lite-1.62.2.jar"
+      resolved="io.grpc:grpc-protobuf-lite:1.62.2"/>
+  <library
+      name="io.grpc:grpc-stub:1.62.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.grpc\grpc-stub\1.62.2\fc1e85697502d96d6c912e8dd2a56f46f1aba050\grpc-stub-1.62.2.jar"
+      resolved="io.grpc:grpc-stub:1.62.2"/>
+  <library
+      name="io.grpc:grpc-util:1.62.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.grpc\grpc-util\1.62.2\98c4138f09fb57c3ad6cbeffb31ed73e302038f7\grpc-util-1.62.2.jar"
+      resolved="io.grpc:grpc-util:1.62.2"/>
+  <library
+      name="io.grpc:grpc-core:1.62.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.grpc\grpc-core\1.62.2\5808049a5e33eba6f248a68d58e75399a68f2784\grpc-core-1.62.2.jar"
+      resolved="io.grpc:grpc-core:1.62.2"/>
+  <library
+      name="io.grpc:grpc-context:1.62.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.grpc\grpc-context\1.62.2\69e86c35140b3b1718d65635bb54ccecc4c12f14\grpc-context-1.62.2.jar"
+      resolved="io.grpc:grpc-context:1.62.2"/>
+  <library
+      name="io.grpc:grpc-api:1.62.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.grpc\grpc-api\1.62.2\a93b6ee3761d48edd9a9279f20a58be1a245ad01\grpc-api-1.62.2.jar"
+      resolved="io.grpc:grpc-api:1.62.2"/>
+  <library
+      name="com.google.guava:guava:32.1.3-android@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\32.1.3-android\ea090dd85ca2fa12d42d054369df888665230dd7\guava-32.1.3-android.jar"
+      resolved="com.google.guava:guava:32.1.3-android"/>
+  <library
+      name="com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\b421526c5f297295adef1c886e5246c39d4ac629\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+      resolved="com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"/>
+  <library
+      name="javax.inject:javax.inject:1@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+      resolved="javax.inject:javax.inject:1"/>
+  <library
+      name="com.google.errorprone:error_prone_annotations:2.26.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.errorprone\error_prone_annotations\2.26.0\c513866fd91bb46587500440a80fa943e95d12d9\error_prone_annotations-2.26.0.jar"
+      resolved="com.google.errorprone:error_prone_annotations:2.26.0"/>
+  <library
+      name="com.google.protobuf:protobuf-javalite:3.25.1@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.protobuf\protobuf-javalite\3.25.1\3dee29d9cbdb25f9363847054ed68d34b9f9c8b0\protobuf-javalite-3.25.1.jar"
+      resolved="com.google.protobuf:protobuf-javalite:3.25.1"/>
+  <library
+      name="io.perfmark:perfmark-api:0.26.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\io.perfmark\perfmark-api\0.26.0\ef65452adaf20bf7d12ef55913aba24037b82738\perfmark-api-0.26.0.jar"
+      resolved="io.perfmark:perfmark-api:0.26.0"/>
+  <library
+      name="com.google.code.findbugs:jsr305:3.0.2@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.2\25ea2e8b0c338a877313bd4672d3fe056ea78f0d\jsr305-3.0.2.jar"
+      resolved="com.google.code.findbugs:jsr305:3.0.2"/>
+  <library
+      name="com.google.code.gson:gson:2.10.1@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.10.1\b3add478d4382b78ea20b1671390a858002feb6c\gson-2.10.1.jar"
+      resolved="com.google.code.gson:gson:2.10.1"/>
+  <library
+      name="com.google.android:annotations:4.1.1.4@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.android\annotations\4.1.1.4\a1678ba907bf92691d879fef34e1a187038f9259\annotations-4.1.1.4.jar"
+      resolved="com.google.android:annotations:4.1.1.4"/>
+  <library
+      name="org.codehaus.mojo:animal-sniffer-annotations:1.23@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.codehaus.mojo\animal-sniffer-annotations\1.23\3c0daebd5f0e1ce72cc50c818321ac957aeb5d70\animal-sniffer-annotations-1.23.jar"
+      resolved="org.codehaus.mojo:animal-sniffer-annotations:1.23"/>
+  <library
+      name="com.google.guava:failureaccess:1.0.1@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\com.google.guava\failureaccess\1.0.1\1dcf1de382a0bf95a3d8b0849546c88bac1292c9\failureaccess-1.0.1.jar"
+      resolved="com.google.guava:failureaccess:1.0.1"/>
+  <library
+      name="org.checkerframework:checker-qual:3.37.0@jar"
+      jars="C:\Users\FATIMA ENRICOSO\.gradle\caches\modules-2\files-2.1\org.checkerframework\checker-qual\3.37.0\ba74746d38026581c12166e164bb3c15e90cc4ea\checker-qual-3.37.0.jar"
+      resolved="org.checkerframework:checker-qual:3.37.0"/>
+</libraries>

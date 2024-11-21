@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "900220872409",
+    "project_id": "rentmobile-c4616",
+    "storage_bucket": "rentmobile-c4616.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900220872409:android:1e13d7fc645a491c09c0c8",
+        "android_client_info": {
+          "package_name": "com.example.ambulantcollector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNyQ3xVDtU7XaT06-tJIsO3vkVKZlEjnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900220872409:android:3060da4c774eb82809c0c8",
+        "android_client_info": {
+          "package_name": "com.example.rent_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNyQ3xVDtU7XaT06-tJIsO3vkVKZlEjnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
