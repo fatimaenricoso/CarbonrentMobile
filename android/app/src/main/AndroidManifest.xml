@@ -36,7 +36,7 @@
             
                 <data android:scheme="https"/> 
                 <data android:host="redirecting-flutter-checkout-paymongo.netlify.app"/> 
-                <data android:path="/dashboardVendor"/>
+                <data android:path="/paymentScreen"/>
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.

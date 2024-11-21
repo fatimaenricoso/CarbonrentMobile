@@ -1,3 +1,4 @@
+import 'package:ambulantcollector/STALLHOLDER/payrental.dart';
 import 'package:ambulantcollector/firebase_option.dart';
 import 'package:ambulantcollector/screens/dashboardvendor.dart';
 import 'package:ambulantcollector/screens/unifiedloginscreen.dart';
@@ -70,6 +71,8 @@ class MyApp extends StatelessWidget {
       home: const UnifiedLoginScreen(),
       routes: {
         '/dashboardVendor': (_) => DashboardVendor(),
+        '/paymentScreen': (_) => PaymentScreen(),
+        '/unifiedLogin': (context) => UnifiedLoginScreen(),
       },
     );
   }
