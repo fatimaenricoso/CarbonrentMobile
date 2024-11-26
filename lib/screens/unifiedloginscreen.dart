@@ -1,7 +1,7 @@
 import 'package:ambulantcollector/reusable_widgets/reusable_widgets.dart';
 import 'package:ambulantcollector/screens/appraisalDashboard.dart';
 import 'package:ambulantcollector/screens/collectordashboard.dart';
-import 'package:ambulantcollector/screens/reset_password.dart';
+import 'package:ambulantcollector/screens/reser_password.dart';
 import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore package
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -253,7 +253,7 @@ class _UnifiedLoginScreenState extends State<UnifiedLoginScreen> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ResetPassword()),
+            MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
           );
         },
         child: const Text(

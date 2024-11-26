@@ -209,6 +209,78 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
     );
   }
 
+  Future<void> _confirmLogout() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          elevation: 4,
+          backgroundColor: Colors.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 60, // Increased height
+                decoration: const BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(12.0)),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Confirm Logout',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: Text('Are you sure you want to logout?'),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    child: const Text('No', style: TextStyle(color: Colors.black)),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  TextButton(
+                    child: const Text('Yes', style: TextStyle(color: Colors.green)),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      _logout();
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _logout() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const UnifiedLoginScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -273,14 +345,7 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                                 ],
                               ),
                               GestureDetector(
-                                onTap: () {
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const UnifiedLoginScreen(),
-                                    ),
-                                  );
-                                },
+                                onTap: _confirmLogout,
                                 child: const Row(
                                   children: [
                                     Icon(Icons.logout, color: Colors.green),
@@ -321,7 +386,7 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                                 'This Week: ${_getWeekDateRange()}',
                                 style: const TextStyle(
                                   fontSize: 10,
-                                /*   fontWeight: FontWeight.bold, */
+                                  /*   fontWeight: FontWeight.bold, */
                                 ),
                               ),
                               const SizedBox(height: 10),
@@ -335,7 +400,7 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                     ),
                     const Text(
                       'Monthly Appraisals',
-                      style: TextStyle(fontSize: 15 , fontWeight: FontWeight.bold ),
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 12),
                     StreamBuilder<Map<String, Map<String, Map<String, dynamic>>>>(
@@ -357,7 +422,7 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                                     DateFormat('MMMM yyyy').format(DateTime.parse('$month-01')),
                                     style: const TextStyle(
                                       fontSize: 9,
-                                       /* fontWeight: FontWeight.bold, */
+                                      /* fontWeight: FontWeight.bold, */
                                     ),
                                   ),
                                   const SizedBox(height: 3), // Add space between month label and containers
@@ -381,12 +446,12 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                                         },
                                         child: Card(
                                           margin: const EdgeInsets.symmetric(vertical: 5),
-                                          elevation: 0, //shadow
+                                          elevation: 0, // shadow
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(10),
                                             side: const BorderSide(color: Colors.grey, width: 0.5), // Add green border
                                           ),
-                                          color:  Colors.white,
+                                          color: Colors.white,
                                           child: Padding(
                                             padding: const EdgeInsets.all(9),
                                             child: Column(
@@ -396,7 +461,7 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                                                   goodsName,
                                                   style: const TextStyle(
                                                     fontSize: 13,
-                                                     fontWeight: FontWeight.bold,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
                                                 const SizedBox(height: 2),
@@ -434,9 +499,7 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                   ],
                 ),
               ),
-
             )
-
           : _screens[_selectedIndex],
       bottomNavigationBar: bottomNavigationBar(),
     );

@@ -1,264 +1,246 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+class ChangePasswordScreen extends StatefulWidget {
+  const ChangePasswordScreen({Key? key}) : super(key: key);
+
+  @override
+  _ChangePasswordScreenState createState() => _ChangePasswordScreenState();
+}
+
+class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+  final TextEditingController _currentPasswordController = TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String? _passwordError;
+  String? _confirmPasswordError;
+
+  bool _currentPasswordVisible = false;
+  bool _newPasswordVisible = false;
+  bool _confirmPasswordVisible = false;
+
+  Future<void> _changePassword() async {
+    if (_formKey.currentState!.validate()) {
+      try {
+        User? user = FirebaseAuth.instance.currentUser;
+        if (user != null) {
+          String currentPassword = _currentPasswordController.text;
+          String newPassword = _newPasswordController.text;
+
+          // Re-authenticate the user with the current password
+          AuthCredential credential = EmailAuthProvider.credential(
+            email: user.email!,
+            password: currentPassword,
+          );
+          await user.reauthenticateWithCredential(credential);
+
+          // Change the password
+          await user.updatePassword(newPassword);
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Password changed successfully.')),
+          );
+
+          // Clear the text fields
+          _currentPasswordController.clear();
+          _newPasswordController.clear();
+          _confirmPasswordController.clear();
+        }
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'wrong-password') {
+          setState(() {
+            _passwordError = 'Current password entered is incorrect';
+          });
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Failed to change password: The current password you entered is incorrect!')),
+          );
+        }
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Failed to change password: The current password you entered is incorrect!')),
+        );
+      }
+    }
+  }
+
+  String? _validateNewPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your new password';
+    }
+    if (value.length < 8) {
+      return 'Password must be at least 8 characters long';
+    }
+    if (!RegExp(r'[A-Z]').hasMatch(value)) {
+      return 'Password must contain at least one uppercase letter';
+    }
+    if (!RegExp(r'[a-z]').hasMatch(value)) {
+      return 'Password must contain at least one lowercase letter';
+    }
+    if (!RegExp(r'[0-9]').hasMatch(value)) {
+      return 'Password must contain at least one number';
+    }
+    if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
+      return 'Password must contain at least one special character';
+    }
+    return null;
+  }
+
+  String? _validateConfirmPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please confirm your new password';
+    }
+    if (value != _newPasswordController.text) {
+      return 'Passwords do not match';
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.of(context).pop(true); // Pop with a result indicating form should be cleared
+            Navigator.of(context).pop();
           },
         ),
         title: const Text(
-          "Settings",
+          "Change Password",
           style: TextStyle(color: Colors.white, fontSize: 16),
         ),
         backgroundColor: Colors.green,
-        elevation: 1.0,
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.security),
-              title: const Text("Security"),
-              subtitle: const Text("Change password"),
-              onTap: () {
-                _showChangePasswordDialog(context);
-              },
-            ),
-            const Divider(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // Function to show the change password dialog
-  void _showChangePasswordDialog(BuildContext context) {
-    final TextEditingController currentPasswordController = TextEditingController();
-    final TextEditingController newPasswordController = TextEditingController();
-    final TextEditingController confirmPasswordController = TextEditingController();
-    bool obscureCurrentPassword = true;
-    bool obscureNewPassword = true;
-    bool obscureConfirmPassword = true;
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return StatefulBuilder(
-          builder: (context, setState) {
-            return AlertDialog(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-              titlePadding: const EdgeInsets.all(0),
-              title: Container(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                width: double.maxFinite,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(13.0), // Curved top corners
-                    bottom: Radius.circular(0.0), // Straight bottom corners
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 1),
+              TextFormField(
+                controller: _currentPasswordController,
+                decoration: InputDecoration(
+                  hintText: 'Enter your current password',
+                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 15),
+                  enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  errorText: _passwordError,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _currentPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _currentPasswordVisible = !_currentPasswordVisible;
+                      });
+                    },
                   ),
                 ),
-                child: const Text(
-                  "CHANGE PASSWORD",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                obscureText: !_currentPasswordVisible,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your current password';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 24),
+              const SizedBox(height: 5),
+              TextFormField(
+                controller: _newPasswordController,
+                decoration: InputDecoration(
+                  hintText: 'Enter your new password',
+                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 15),
+                  enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _newPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _newPasswordVisible = !_newPasswordVisible;
+                      });
+                    },
                   ),
                 ),
+                obscureText: !_newPasswordVisible,
+                validator: _validateNewPassword,
               ),
-              content: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8, // Wider dialog
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Current Password Field
-                    TextField(
-                      controller: currentPasswordController,
-                      decoration: InputDecoration(
-                        labelText: "Current Password",
-                        border: const OutlineInputBorder(),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            obscureCurrentPassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              obscureCurrentPassword = !obscureCurrentPassword;
-                            });
-                          },
-                        ),
-                      ),
-                      obscureText: obscureCurrentPassword,
-                      enableSuggestions: false,
-                      autocorrect: false,
-                    ),
-                    const SizedBox(height: 16.0),
-                    // New Password Field
-                    TextField(
-                      controller: newPasswordController,
-                      decoration: InputDecoration(
-                        labelText: "New Password",
-                        border: const OutlineInputBorder(),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            obscureNewPassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              obscureNewPassword = !obscureNewPassword;
-                            });
-                          },
-                        ),
-                      ),
-                      obscureText: obscureNewPassword,
-                      enableSuggestions: false,
-                      autocorrect: false,
-                    ),
-                    const SizedBox(height: 16.0),
-                    // Confirm New Password Field
-                    TextField(
-                      controller: confirmPasswordController,
-                      decoration: InputDecoration(
-                        labelText: "Confirm New Password",
-                        border: const OutlineInputBorder(),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            obscureConfirmPassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              obscureConfirmPassword = !obscureConfirmPassword;
-                            });
-                          },
-                        ),
-                      ),
-                      obscureText: obscureConfirmPassword,
-                      enableSuggestions: false,
-                      autocorrect: false,
-                    ),
-                  ],
-                ),
+              const SizedBox(height: 8),
+              const Text(
+                'Password must contain at least 1 uppercase and lowercase letter, number, special character, and be at least 8 characters long.',
+                style: TextStyle(color: Colors.grey, fontSize: 8),
               ),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text(
-                    "Cancel",
-                    style: TextStyle(
-                      color: Colors.green, // Set text color to green
+              const SizedBox(height: 24),
+              const SizedBox(height: 8),
+              TextFormField(
+                controller: _confirmPasswordController,
+                decoration: InputDecoration(
+                  hintText: 'Confirm your new password',
+                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 15),
+                  enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  errorText: _confirmPasswordError,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      color: Colors.grey,
                     ),
+                    onPressed: () {
+                      setState(() {
+                        _confirmPasswordVisible = !_confirmPasswordVisible;
+                      });
+                    },
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () async {
-                    await _changePassword(
-                      context,
-                      currentPasswordController.text,
-                      newPasswordController.text,
-                      confirmPasswordController.text,
-                    );
-                  },
+                obscureText: !_confirmPasswordVisible,
+                validator: _validateConfirmPassword,
+                onChanged: (value) {
+                  setState(() {
+                    _confirmPasswordError = _validateConfirmPassword(value);
+                  });
+                },
+              ),
+              const SizedBox(height: 32),
+              Center(
+                child: ElevatedButton(
+                  onPressed: _changePassword,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green, // Set the background color to green
-                    foregroundColor: Colors.white, // Set the text color to white
+                    backgroundColor: Colors.green,
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0), // Adjust the corner radius
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: const Text("Save"),
+                  child: const Text(
+                    'Change Password',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
                 ),
-              ],
-            );
-          },
-        );
-      },
-    );
-  }
-
-  Future<void> _changePassword(
-    BuildContext context,
-    String currentPassword,
-    String newPassword,
-    String confirmPassword,
-  ) async {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      _showErrorDialog(context, "No user is logged in.");
-      return;
-    }
-
-    AuthCredential credential = EmailAuthProvider.credential(
-      email: user.email!,
-      password: currentPassword,
-    );
-
-    try {
-      await user.reauthenticateWithCredential(credential);
-
-      if (newPassword != confirmPassword) {
-        _showErrorDialog(context, "New passwords do not match.");
-        return;
-      }
-
-      await user.updatePassword(newPassword);
-      Navigator.of(context).pop();
-      _showSuccessDialog(context, "Password changed successfully.");
-    } catch (error) {
-      _showErrorDialog(context, "Failed to change password. Please check the current password or try again.");
-    }
-  }
-
-  void _showErrorDialog(BuildContext context, String message) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Error"),
-        content: Text(message),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text("OK"),
+              ),
+            ],
           ),
-        ],
-      ),
-    );
-  }
-
-  void _showSuccessDialog(BuildContext context, String message) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Success"),
-        content: Text(message),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text("OK"),
-          ),
-        ],
+        ),
       ),
     );
   }

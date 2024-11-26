@@ -304,7 +304,7 @@ class _HistoryVendorState extends State<HistoryVendor> {
                             text: '',
                             style: const TextStyle(
                               fontSize: 10,
-                              color: Colors.grey,
+                              color: Color.fromARGB(255, 86, 85, 85),
                             ),
                             children: _highlightMatches(paymentDateFormatted, _searchQuery),
                           ),

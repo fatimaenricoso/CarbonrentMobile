@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const UnifiedLoginScreen(),
+      home:  UnifiedLoginScreen(),
       routes: {
         '/dashboardVendor': (_) => DashboardVendor(),
       },

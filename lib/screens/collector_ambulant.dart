@@ -64,7 +64,7 @@ class _CollectorSpaceState extends State<CollectorSpace> {
 
   Future<void> _fetchSpaceRate() async {
     try {
-      var rateSnapshot = await _firestore.collection('rate').get();
+      var rateSnapshot = await _firestore.collection('billingconfig').get();
       for (var doc in rateSnapshot.docs) {
         if (doc.data().containsKey('space_rate')) {
           setState(() {
@@ -332,7 +332,7 @@ class _CollectorSpaceState extends State<CollectorSpace> {
           children: [
 /*             Icon(Icons.assignment, color: Colors.white),
  */            SizedBox(width: 8),
-            Text("Collection", style: TextStyle(color: Colors.white, fontSize: 16)),
+            Text("Collect Rent Payment", style: TextStyle(color: Colors.white, fontSize: 16)),
           ],
         ),
         backgroundColor: Colors.green,
@@ -490,6 +490,15 @@ class _CollectorSpaceState extends State<CollectorSpace> {
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () async {
+                      if (_numberOfTickets <= 0) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Field cannot be 0 or empty.'),
+                            backgroundColor: Color.fromARGB(255, 96, 95, 95),
+                          ),
+                        );
+                        return;
+                      }
                       bool shouldProceed = await _showConfirmationDialog(context);
                       if (shouldProceed) {
                         _addPayment(_numberOfTickets);

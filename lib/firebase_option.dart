@@ -22,12 +22,12 @@ class DefaultFirebaseOptions {
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
-      /* case TargetPlatform.iOS:
+       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        return windows; */
+        return windows; 
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
     projectId: 'rentmobile-c4616',
     storageBucket: "rentmobile-c4616.appspot.com",
   );
-/* 
+
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAXsQzrge7GpY41FJeLzrF_NP9416RSd_Q',
     appId: '1:900220872409:ios:2ade94213bd92d8309c0c8',
@@ -85,5 +85,5 @@ class DefaultFirebaseOptions {
     authDomain: 'rentmobile-c4616.firebaseapp.com',
     storageBucket: 'rentmobile-c4616.appspot.com',
     measurementId: 'G-8RV9929GFF',
-  ); */
+  ); 
 }
