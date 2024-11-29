@@ -1,4 +1,5 @@
 import 'package:ambulantcollector/reusable_widgets/reusable_widgets.dart';
+import 'package:ambulantcollector/screens/StallDashboard.dart';
 import 'package:ambulantcollector/screens/appraisalDashboard.dart';
 import 'package:ambulantcollector/screens/collectordashboard.dart';
 import 'package:ambulantcollector/screens/reser_password.dart';
@@ -128,6 +129,21 @@ class _UnifiedLoginScreenState extends State<UnifiedLoginScreen> {
       );
 
       if (userCredential.user != null) {
+        // Check if the user exists in the admin_users collection
+        final QuerySnapshot adminSnapshot = await FirebaseFirestore.instance
+            .collection('admin_users')
+            .where('email', isEqualTo: email)
+            .get();
+
+        if (adminSnapshot.docs.isNotEmpty) {
+          // User found in admin_users
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const StallDashboard()),
+          );
+          return;
+        }
+
         // Check if the user exists in the appraisal_user collection
         final QuerySnapshot snapshot = await FirebaseFirestore.instance
             .collection('appraisal_user')
