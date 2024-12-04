@@ -371,31 +371,43 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                       style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 10),
+  
                     StreamBuilder<Map<String, Map<String, double>>>(
                       stream: _weeklyAppraisalsStream(),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState == ConnectionState.waiting) {
                           return const CircularProgressIndicator();
                         }
-                        if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-                          Map<String, double> currentWeekData = snapshot.data!['current_week'] ?? {};
-
-                          return Column(
-                            children: [
-                              Text(
-                                'This Week: ${_getWeekDateRange()}',
-                                style: const TextStyle(
-                                  fontSize: 10,
-                                  /*   fontWeight: FontWeight.bold, */
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              _buildDynamicBarChart(currentWeekData),
-                              const SizedBox(height: 20),
-                            ],
-                          );
+                        if (snapshot.hasError) {
+                          print('Error: ${snapshot.error}');
+                          return const Text('Error fetching weekly appraisals.');
                         }
-                        return const Text('No appraisals for this week.');
+                        if (snapshot.hasData) {
+                          Map<String, Map<String, double>>? data = snapshot.data;
+                          if (data != null && data.isNotEmpty) {
+                            Map<String, double> currentWeekData = data['current_week'] ?? {};
+                            if (currentWeekData.isNotEmpty) {
+                              return Column(
+                                children: [
+                                  Text(
+                                    'This Week: ${_getWeekDateRange()}',
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  _buildDynamicBarChart(currentWeekData),
+                                  const SizedBox(height: 20),
+                                ],
+                              );
+                            } else {
+                              return const Text('No appraisal found in this week.');
+                            }
+                          } else {
+                            return const Text('No appraisal found in this week.');
+                          }
+                        }
+                        return const Text('No appraisal found in this week.');
                       },
                     ),
                     const Text(
@@ -421,8 +433,9 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                                   Text(
                                     DateFormat('MMMM yyyy').format(DateTime.parse('$month-01')),
                                     style: const TextStyle(
-                                      fontSize: 9,
-                                      /* fontWeight: FontWeight.bold, */
+                                      fontSize: 12,
+                                      color: Colors.grey,
+                                     fontWeight: FontWeight.bold, 
                                     ),
                                   ),
                                   const SizedBox(height: 3), // Add space between month label and containers
@@ -466,9 +479,9 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                                                 ),
                                                 const SizedBox(height: 2),
                                                 Text(
-                                                  'Total Appraisal Amount: ₱${totalAmount.toStringAsFixed(2)}',
+                                                  'Total Amount: ₱${totalAmount.toStringAsFixed(2)}',
                                                   style: const TextStyle(
-                                                    fontSize: 9,
+                                                    fontSize: 11,
                                                     color: Colors.black,
                                                   ),
                                                 ),
@@ -476,7 +489,7 @@ class _AppraisalDashboardState extends State<AppraisalDashboard> {
                                                 Text(
                                                   'Quantity: $quantity $unitMeasure',
                                                   style: const TextStyle(
-                                                    fontSize: 9,
+                                                    fontSize: 11,
                                                     color: Colors.black,
                                                   ),
                                                 ),

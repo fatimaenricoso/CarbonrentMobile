@@ -260,7 +260,7 @@ class _DashboardState extends State<Dashboard> {
                 children: [
 /*             Icon(Icons.dashboard, color: Colors.white),
  */                  SizedBox(width: 8),
-                  Text("Dashboard", style: TextStyle(color: Colors.white, fontSize: 16)),
+                  Text("Collector Dashboard", style: TextStyle(color: Colors.white, fontSize: 16)),
                 ],
               ),
               backgroundColor: Colors.green,

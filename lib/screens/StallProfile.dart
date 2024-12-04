@@ -363,6 +363,12 @@ class _StallProfileState extends State<StallProfile> {
         ),
         backgroundColor: Colors.green,
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout, color: Colors.white), // Logout icon with white color
+            onPressed: _confirmLogout,
+          ),
+        ],
       ),
       drawer: Container(
         width: 250, // Set the desired width for the drawer
@@ -539,22 +545,6 @@ class _StallProfileState extends State<StallProfile> {
             _buildInfoColumn(Icons.location_on, 'Location', _location),
             _buildInfoColumn(Icons.calendar_today, 'Created At', _createdAt),
             const SizedBox(height: 15), // Added spacing before the logout button
-            Center(
-              child: ElevatedButton(
-                onPressed: _confirmLogout,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 13),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                child: const Text(
-                  'Logout',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-              ),
-            ),
           ],
         ),
       ),

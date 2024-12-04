@@ -153,7 +153,7 @@ class _HistoryVendorState extends State<HistoryVendor> {
                 ),
                 suffixIcon: const Icon(Icons.search, color: Colors.green), // Icon color
               ),
-              style: const TextStyle(fontSize: 10),
+              style: const TextStyle(fontSize: 12),
               onChanged: (value) {
                 setState(() {
                   _searchQuery = value.toLowerCase();

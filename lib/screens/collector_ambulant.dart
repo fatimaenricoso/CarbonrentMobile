@@ -16,10 +16,12 @@ class _CollectorSpaceState extends State<CollectorSpace> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   String? collectorZone;
+  String? collectorLocation;
   String? collectorEmail;
   String? collectorAddress;
   String? collectorContact;
   String? collectors; // Added collector field
+  String? collectorId; // Added collector ID field
   double? spaceRate;
   int _numberOfTickets = 0;
   double _totalAmount = 0.0;
@@ -52,19 +54,22 @@ class _CollectorSpaceState extends State<CollectorSpace> {
       if (collectorSnapshot.docs.isNotEmpty) {
         var collectorData = collectorSnapshot.docs.first.data() as Map<String, dynamic>;
         collectorZone = collectorData['zone'];
+        collectorLocation = collectorData['location'];
         collectorEmail = collectorData['email'];
         collectorAddress = collectorData['Address_collector'];
         collectorContact = collectorData['contact_collector'];
         collectors = collectorData['collector']; // Fetch collector field
+        collectorId = collectorSnapshot.docs.first.id; // Fetch collector ID
+        collectorLocation = collectorData['location']; // Fetch collector location
       }
     } catch (e) {
-      print('Error fetching collector details: $e');
+      // print('Error fetching collector details: $e');
     }
   }
 
   Future<void> _fetchSpaceRate() async {
     try {
-      var rateSnapshot = await _firestore.collection('billingconfig').get();
+      var rateSnapshot = await _firestore.collection('rate').get();
       for (var doc in rateSnapshot.docs) {
         if (doc.data().containsKey('space_rate')) {
           setState(() {
@@ -74,7 +79,7 @@ class _CollectorSpaceState extends State<CollectorSpace> {
         }
       }
     } catch (e) {
-      print('Error fetching space rate: $e');
+      // print('Error fetching space rate: $e');
     }
   }
 
@@ -122,7 +127,7 @@ class _CollectorSpaceState extends State<CollectorSpace> {
 
   Future<void> _addPayment(int numberOfTickets) async {
     var today = DateTime.now();
-    String formattedDate = DateFormat('yyyy-MM-dd').format(today);
+    DateFormat('yyyy-MM-dd').format(today);
 
     int vendorNumber = await _getNextVendorNumber();
     print('Next vendor_number: $vendorNumber');
@@ -139,6 +144,8 @@ class _CollectorSpaceState extends State<CollectorSpace> {
         'collector_contact': collectorContact,
         'vendor_number': vendorNumber,
         'collector': collectors, // Store collector field
+        'vendorId': collectorId, // Store collector ID
+        'location': collectorLocation, // Store collector location
       });
 
       // Show success dialog
@@ -186,7 +193,7 @@ class _CollectorSpaceState extends State<CollectorSpace> {
         },
       );
     } catch (e) {
-      print('Error adding payment: $e');
+      // print('Error adding payment: $e');
     }
   }
 
@@ -250,6 +257,14 @@ class _CollectorSpaceState extends State<CollectorSpace> {
                       children: [
                         const Text('Zone', style: TextStyle(fontSize: 12)),
                         Text(collectorZone ?? '', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('Location', style: TextStyle(fontSize: 12)),
+                        Text(collectorLocation ?? '', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
                       ],
                     ),
                     const SizedBox(height: 5),
@@ -362,15 +377,27 @@ class _CollectorSpaceState extends State<CollectorSpace> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                    Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Zone: $collectorZone',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Zone: $collectorZone',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'Location: $collectorLocation',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
                       Text(
                         'Date: ${DateFormat('MM/dd/yyyy').format(DateTime.now())}',

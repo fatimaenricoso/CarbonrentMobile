@@ -236,6 +236,7 @@ class _AppraisalCollectState extends State<AppraisalCollect> {
       final addressAppraisal = appraiserData['Address_appraisal'];
       final contactAppraisal = appraiserData['contact_appraisal'];
       final appraisalAssign = appraiserData['appraisal_assign']; // Fetch appraisal_assign
+      final vendorId = appraiserDoc.docs.first.id; // Get the document ID of the current user
 
       // Prepare the data to store
       final appraisalData = {
@@ -252,6 +253,7 @@ class _AppraisalCollectState extends State<AppraisalCollect> {
         'contact_appraisal': contactAppraisal,
         'appraisee_name': companyNameController.text, // Add company name here
         'appraisal_assign': appraisalAssign, // Add appraisal_assign here
+        'vendorId': vendorId, // Add vendorId here
       };
 
       // Store data in Firestore
@@ -353,7 +355,7 @@ class _AppraisalCollectState extends State<AppraisalCollect> {
                       ],
                     ),
                     const SizedBox(height: 5),
-                   
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

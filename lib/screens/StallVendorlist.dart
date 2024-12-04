@@ -80,9 +80,14 @@ class _StallScreenState extends State<StallScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Approved Vendors"),
+       appBar: AppBar(
+        title: const Text(
+          "Vendors",
+          style: TextStyle(color: Colors.white, fontSize: 16),
+        ),
         backgroundColor: Colors.green,
+        elevation: 0,
+        centerTitle: true,
       ),
       body: Column(
         children: [

@@ -1,7 +1,7 @@
+import 'package:ambulantcollector/screens/StallBillingConfig.dart';
 import 'package:ambulantcollector/screens/StallHistory.dart';
-import 'package:ambulantcollector/screens/StallPayment.dart';
 import 'package:ambulantcollector/screens/StallProfile.dart';
-import 'package:ambulantcollector/screens/StallStall.dart';
+import 'package:ambulantcollector/screens/StallVendorlist.dart';
 import 'package:ambulantcollector/screens/unifiedloginscreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -43,18 +43,22 @@ class _StallDashboardState extends State<StallDashboard> {
     String todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
     return FirebaseFirestore.instance
-        .collection('payments')
-        .where('user_email', isEqualTo: currentUserEmail)
+        .collection('stall_payment')
+        .where('status', isEqualTo: 'paid')
         .snapshots()
         .map((paymentSnapshot) {
       double totalAmount = 0.0;
       for (var doc in paymentSnapshot.docs) {
-        Timestamp paymentDate = doc['created_date'];
+        Timestamp paymentDate = doc['paymentDate'];
         String paymentDateString = DateFormat('yyyy-MM-dd').format(paymentDate.toDate());
 
         // Check if payment is made today
         if (paymentDateString == todayDate) {
-          totalAmount += (doc['total_amount'] as num).toDouble();
+          if (doc.data().containsKey('totalAmountDue')) {
+            totalAmount += (doc['totalAmountDue'] as num).toDouble();
+          } else {
+            totalAmount += (doc['total'] as num).toDouble();
+          }
         }
       }
       return totalAmount;
@@ -187,7 +191,7 @@ class _StallDashboardState extends State<StallDashboard> {
       appBar: _selectedIndex == 2
           ? AppBar(
               title: const Text(
-                "Stall Dashboard",
+                "Stall Collector Dashboard",
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               backgroundColor: Colors.green,
