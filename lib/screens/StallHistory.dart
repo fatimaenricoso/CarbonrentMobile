@@ -1,20 +1,20 @@
-import 'package:ambulantcollector/screens/collectorreceipttap';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HistoryVendor extends StatefulWidget {
-  const HistoryVendor({super.key});
+class StallHistory extends StatefulWidget {
+  const StallHistory({Key? key}) : super(key: key);
 
   @override
-  _HistoryVendorState createState() => _HistoryVendorState();
+  _StallHistoryState createState() => _StallHistoryState();
 }
 
-class _HistoryVendorState extends State<HistoryVendor> {
-  final CollectionReference paymentCollectorRef = FirebaseFirestore.instance.collection('payment_ambulant');
-  final CollectionReference collectorRef = FirebaseFirestore.instance.collection('ambulant_collector');
+class _StallHistoryState extends State<StallHistory> {
+  final CollectionReference paymentCollectorRef = FirebaseFirestore.instance.collection('stall_payment');
+  final CollectionReference collectorRef = FirebaseFirestore.instance.collection('admin_users');
+  final CollectionReference vendorRef = FirebaseFirestore.instance.collection('approveVendors');
   String _selectedFilter = 'All';
   String _searchQuery = '';
   Map<String, bool> tappedContainers = {};
@@ -23,7 +23,8 @@ class _HistoryVendorState extends State<HistoryVendor> {
   bool isInitialized = false;
 
   String? currentCollectorEmail;
-  String? currentCollectorZone;
+  String? currentCollectorLocation;
+  List<String> vendorIdsWithSameLocation = [];
 
   @override
   void initState() {
@@ -37,6 +38,7 @@ class _HistoryVendorState extends State<HistoryVendor> {
     try {
       prefs = await SharedPreferences.getInstance();
       await _getCurrentCollectorDetails();
+      await _fetchVendorsWithSameLocation();
       _loadTappedContainers();
       if (mounted) {
         setState(() {
@@ -81,9 +83,18 @@ class _HistoryVendorState extends State<HistoryVendor> {
       if (collectorSnapshot.docs.isNotEmpty) {
         final collectorData = collectorSnapshot.docs.first.data() as Map<String, dynamic>;
         setState(() {
-          currentCollectorZone = collectorData['zone'];
+          currentCollectorLocation = collectorData['location'];
         });
       }
+    }
+  }
+
+  Future<void> _fetchVendorsWithSameLocation() async {
+    if (currentCollectorLocation != null) {
+      final vendorSnapshot = await vendorRef.where('stallInfo.location', isEqualTo: currentCollectorLocation).get();
+      setState(() {
+        vendorIdsWithSameLocation = vendorSnapshot.docs.map((doc) => doc.id).toList();
+      });
     }
   }
 
@@ -101,7 +112,6 @@ class _HistoryVendorState extends State<HistoryVendor> {
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-/*             Icon(Icons.people, color: Colors.white), */
             SizedBox(width: 8),
             Text("Payment History", style: TextStyle(color: Colors.white, fontSize: 16)),
           ],
@@ -199,10 +209,14 @@ class _HistoryVendorState extends State<HistoryVendor> {
 
   Widget _buildPaymentHistoryList() {
     return StreamBuilder<QuerySnapshot>(
-      stream: paymentCollectorRef
-          .where('zone', isEqualTo: currentCollectorZone)
-          .where('collector_email', isEqualTo: currentCollectorEmail)
-          .snapshots(),
+      stream: vendorIdsWithSameLocation.isNotEmpty
+          ? paymentCollectorRef
+              .where('status', isEqualTo: 'paid')
+              .where('vendorId', whereIn: vendorIdsWithSameLocation)
+              .snapshots()
+          : paymentCollectorRef
+              .where('status', isEqualTo: 'paid')
+              .snapshots(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -224,96 +238,121 @@ class _HistoryVendorState extends State<HistoryVendor> {
         }
 
         filteredPayments.sort((a, b) {
-          DateTime dateA = (a['date'] as Timestamp).toDate();
-          DateTime dateB = (b['date'] as Timestamp).toDate();
+          DateTime dateA = (a['paymentDate'] as Timestamp).toDate();
+          DateTime dateB = (b['paymentDate'] as Timestamp).toDate();
           return dateB.compareTo(dateA);
         });
 
+        Map<String, List<DocumentSnapshot>> groupedPayments = {};
+        for (var payment in filteredPayments) {
+          DateTime paymentDate = (payment['paymentDate'] as Timestamp).toDate();
+          String monthYear = DateFormat('MMMM yyyy').format(paymentDate);
+          if (!groupedPayments.containsKey(monthYear)) {
+            groupedPayments[monthYear] = [];
+          }
+          groupedPayments[monthYear]!.add(payment);
+        }
+
         return ListView.builder(
-          itemCount: filteredPayments.length,
+          itemCount: groupedPayments.keys.length,
           itemBuilder: (context, index) {
-            final payment = filteredPayments[index];
-            final documentId = payment.id;
-            DateTime paymentDate = (payment['date'] as Timestamp).toDate();
-            final DateFormat formatter = DateFormat('MM/dd/yyyy');
-            final String paymentDateFormatted = formatter.format(paymentDate);
+            String monthYear = groupedPayments.keys.elementAt(index);
+            List<DocumentSnapshot> payments = groupedPayments[monthYear]!;
 
-            // Check if this container has been tapped from SharedPreferences
-            final bool isTapped = tappedContainers[documentId] ?? false;
-
-            return GestureDetector(
-              onTap: () {
-                _saveTappedContainer(documentId);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PaymentReceipt(documentId: documentId),
-                  ),
-                );
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: isTapped ? const Color.fromARGB(255, 252, 249, 249) : const Color.fromARGB(255, 238, 230, 230),
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: const Color.fromARGB(255, 226, 228, 226)),
-                  ),
-                  child: Stack(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Collected Amount:    ₱${payment['total_amount'].toStringAsFixed(2)}',
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RichText(
-                                text: TextSpan(
-                                  text: 'Trans. ID: ',
-                                  style: const TextStyle(
-                                    fontSize: 9,
-                                    color: Colors.grey,
-                                  ),
-                                  children: _highlightMatches(documentId, _searchQuery),
-                                ),
-                              ),
-                              const Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 10), // Arrow icon
-                            ],
-                          ),
-                        ],
-                      ),
-                      Positioned( //For the Date
-                        top: 0,
-                        right: 0,
-                        child: RichText(
-                          text: TextSpan(
-                            text: '',
-                            style: const TextStyle(
-                              fontSize: 10,
-                              color: Color.fromARGB(255, 86, 85, 85),
-                            ),
-                            children: _highlightMatches(paymentDateFormatted, _searchQuery),
-                          ),
-                        ),
-                      ),
-                    ],
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  child: Text(
+                    monthYear,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 70, 69, 69),
+                    ),
                   ),
                 ),
-              ),
+                ...payments.map((payment) {
+                  final documentId = payment.id;
+                  DateTime paymentDate = (payment['paymentDate'] as Timestamp).toDate();
+                  final DateFormat formatter = DateFormat('MM/dd/yyyy');
+                  final String paymentDateFormatted = formatter.format(paymentDate);
+
+                  // Check if this container has been tapped from SharedPreferences
+                  final bool isTapped = tappedContainers[documentId] ?? false;
+
+                  final paymentData = payment.data() as Map<String, dynamic>;
+                  final fullName = '${paymentData['firstName']} ${paymentData['middleName']} ${paymentData['lastName']}';
+                  final amount = paymentData.containsKey('totalAmountDue')
+                      ? '₱${paymentData['totalAmountDue'].toStringAsFixed(2)}'
+                      : '₱${paymentData['total'].toStringAsFixed(2)}';
+
+                  return GestureDetector(
+                    onTap: () {
+                      _saveTappedContainer(documentId);
+                      // Navigate to payment receipt or details screen
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: isTapped ? const Color.fromARGB(255, 252, 249, 249) : const Color.fromARGB(255, 238, 230, 230),
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: Colors.green), // Green border
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: RichText(
+                                    text: TextSpan(
+                                      children: _highlightMatches(fullName, _searchQuery),
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                    children: _highlightMatches(paymentDateFormatted, _searchQuery),
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              'Amount: $amount',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.black,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              'Transaction ID: $documentId',
+                              style: const TextStyle(
+                                fontSize: 9,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ],
             );
           },
         );
@@ -333,7 +372,7 @@ class _HistoryVendorState extends State<HistoryVendor> {
       }
       spans.add(TextSpan(
         text: text.substring(match.start, match.end),
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
       ));
       lastEnd = match.end;
     }
@@ -342,15 +381,6 @@ class _HistoryVendorState extends State<HistoryVendor> {
     }
     return spans;
   }
-
-/*   String _maskedEmail(String email) {
-    final atIndex = email.indexOf('@');
-    if (atIndex <= 1) return email; // If too short to mask, show as-is
-
-    final maskedPart = '*' * (atIndex - 2); // Mask everything except first and last characters before '@'
-    return '${email[0]}$maskedPart${email[atIndex - 1]}${email.substring(atIndex)}';
-  }
- */
 
   List<DocumentSnapshot> _filterPayments(List<DocumentSnapshot> allPayments) {
     final now = DateTime.now();
@@ -362,13 +392,13 @@ class _HistoryVendorState extends State<HistoryVendor> {
     // Apply filter based on the selected filter type
     if (_selectedFilter == 'Today') {
       filtered = allPayments.where((doc) {
-        DateTime paymentDate = (doc['date'] as Timestamp).toDate();
+        DateTime paymentDate = (doc['paymentDate'] as Timestamp).toDate();
         return DateFormat('MM/dd/yyyy').format(paymentDate) ==
             DateFormat('MM/dd/yyyy').format(now);
       }).toList();
     } else if (_selectedFilter == 'This Week') {
       filtered = allPayments.where((doc) {
-        DateTime paymentDate = (doc['date'] as Timestamp).toDate();
+        DateTime paymentDate = (doc['paymentDate'] as Timestamp).toDate();
         return paymentDate.isAfter(weekStart) && paymentDate.isBefore(now.add(const Duration(days: 1)));
       }).toList();
     } else {
@@ -377,7 +407,7 @@ class _HistoryVendorState extends State<HistoryVendor> {
 
     // Apply search query filter for transaction ID and date
     return filtered.where((doc) {
-      DateTime paymentDate = (doc['date'] as Timestamp).toDate();
+      DateTime paymentDate = (doc['paymentDate'] as Timestamp).toDate();
       String formattedDate = DateFormat('MM/dd/yyyy').format(paymentDate);
       String transactionId = doc.id.toLowerCase();
       return transactionId.contains(formattedSearchQuery) ||

@@ -1,14 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class ChangePasswordScreen extends StatefulWidget {
-  const ChangePasswordScreen({Key? key}) : super(key: key);
+class StallCollectorPasswordChange extends StatefulWidget {
+  const StallCollectorPasswordChange({Key? key}) : super(key: key);
 
   @override
-  _ChangePasswordScreenState createState() => _ChangePasswordScreenState();
+  _StallCollectorPasswordChangeState createState() => _StallCollectorPasswordChangeState();
 }
 
-class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+class _StallCollectorPasswordChangeState extends State<StallCollectorPasswordChange> {
   final TextEditingController _currentPasswordController = TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
@@ -37,6 +38,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
           // Change the password
           await user.updatePassword(newPassword);
+
+          // Update the password in the admin_users collection
+          await FirebaseFirestore.instance
+              .collection('admin_users')
+              .doc(user.uid)
+              .update({'password': newPassword});
 
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Password changed successfully.')),

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:ambulantcollector/screens/collectorGallery.dart';
-import 'package:ambulantcollector/screens/collectorSettings.dart'; // Correct path to SettingScreen.dart
+import 'package:ambulantcollector/screens/EnforcerChangePass.dart';
+import 'package:ambulantcollector/screens/EnforcerGallery.dart';
 import 'package:ambulantcollector/screens/unifiedloginscreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,23 +9,24 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class EnforcerProfile extends StatefulWidget {
+  const EnforcerProfile({Key? key}) : super(key: key);
 
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  _EnforcerProfileState createState() => _EnforcerProfileState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _EnforcerProfileState extends State<EnforcerProfile> {
   String _email = '';
   String _firstName = '';
   String _lastName = '';
-/*   String _middleName = '';
- */  String _contactNum = '';
+  String _middleName = '';
+  String _contactNum = '';
   String _address = '';
   String _location = '';
-  String _assign= '';
-  String _collector = '';
+  String _position = '';
+  String _status = '';
+  String _createdAt = '';
   List<Map<String, dynamic>> _profileImages = []; // List of profile image URLs with timestamps
   File? _selectedImage; // Selected image file
 
@@ -46,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
       // Fetch user details from Firestore
       QuerySnapshot userQuery = await FirebaseFirestore.instance
-          .collection('ambulant_collector')
+          .collection('admin_users')
           .where('email', isEqualTo: _email)
           .get();
 
@@ -60,12 +61,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
           _firstName = userData?['firstName'] ?? ''; // Safe access with default value
           _lastName = userData?['lastName'] ?? '';
-/*           _middleName = userData?['middleName'] ?? '';
- */          _contactNum = userData?['contactNum'] ?? '';
-          _address = userData?['Address_collector'] ?? '';
+          _middleName = userData?['middleName'] ?? '';
+          _contactNum = userData?['contactNum'] ?? '';
+          _address = userData?['address'] ?? '';
           _location = userData?['location'] ?? '';
-           _assign = userData?['zone'] ?? '';
-          _collector = userData?['collector'] ?? '';
+          _position = userData?['position'] ?? '';
+          _status = userData?['status'] ?? '';
+          _createdAt = userData?['createdAt'] != null
+              ? (userData?['createdAt'] as Timestamp).toDate().toString()
+              : '';
           _profileImages = List<Map<String, dynamic>>.from(userData?['profileImages'] ?? []); // Fetch profile image URLs with timestamps
         });
       } else {
@@ -169,9 +173,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     if (_selectedImage != null) {
       User? user = FirebaseAuth.instance.currentUser;
       if (user != null) {
-        String collectorValue = _collector; // Get the collector value
         String fileName = 'profile_image_${DateTime.now().millisecondsSinceEpoch}.png'; // Unique file name
-        String storagePath = 'ambulant_collector/$collectorValue/$fileName'; // Path in Firebase Storage
+        String storagePath = 'Enforcer_Profile/$_location/$_firstName $_lastName/$fileName'; // Path in Firebase Storage
 
         try {
           File file = _selectedImage!;
@@ -192,7 +195,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             // Update Firestore with the download URL and timestamp under the current user's document
             QuerySnapshot userQuery = await FirebaseFirestore.instance
-                .collection('ambulant_collector')
+                .collection('admin_users')
                 .where('email', isEqualTo: _email)
                 .get();
 
@@ -205,7 +208,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ..add({'url': downloadUrl, 'timestamp': DateTime.now().toIso8601String()});
 
               await FirebaseFirestore.instance
-                  .collection('ambulant_collector')
+                  .collection('admin_users')
                   .doc(documentId)
                   .set({'profileImages': updatedProfileImages}, SetOptions(merge: true)); // Use merge to avoid overwriting other fields
 
@@ -355,7 +358,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(width: 5),
-            Text("Collector Profile", style: TextStyle(color: Colors.white, fontSize: 16)),
+            Text("Enforcer Profile", style: TextStyle(color: Colors.white, fontSize: 16)),
           ],
         ),
         backgroundColor: Colors.green,
@@ -396,35 +399,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-             ListTile(
-             leading: const Icon(Icons.settings),
-              title: const Text(
-              'Change Password',
-              style: TextStyle(fontSize: 14), // Set the desired font size
-            ),
-            onTap: () {
-              // Navigate to the change password screen
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ChangePasswordScreen()),
-              );
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.photo_library),
-            title: const Text(
-              'View Uploaded Photos',
-              style: TextStyle(fontSize: 14), // Set the desired font size
-            ),
-            onTap: () {
-              // Navigate to the change password screen
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfileGalleryScreen()),
-              );
-            },
-          ),
-
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text(
+                  'Change Password',
+                  style: TextStyle(fontSize: 14), // Set the desired font size
+                ),
+                onTap: () {
+                  // Navigate to the change password screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const EnforcerPasswordChange()),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text(
+                  'View Uploaded Photos',
+                  style: TextStyle(fontSize: 14), // Set the desired font size
+                ),
+                onTap: () {
+                  // Navigate to the change password screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const EnforcerGallery()),
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -508,7 +510,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         // Ensure full name is displayed correctly
                         Text(
-                          '$_firstName $_lastName',
+                          '$_firstName $_middleName $_lastName',
                           style: const TextStyle(
                             fontSize: 18,
                             color: Colors.white, // Change text color to white for contrast
@@ -516,14 +518,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Collector: $_collector',
+                          'Position: $_position',
                           style: const TextStyle(
                             fontSize: 12,
                             color: Color.fromARGB(255, 226, 220, 220), // Change text color to white for contrast
                           ),
                         ),
                         Text(
-                          'Assign Zone: $_assign',
+                          'Status: $_status',
                           style: const TextStyle(
                             fontSize: 12,
                             color: Color.fromARGB(255, 226, 220, 220), // Change text color to white for contrast
@@ -540,6 +542,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             _buildInfoColumn(Icons.email, 'Email', _email),
             _buildInfoColumn(Icons.phone, 'Contact Number', _contactNum),
             _buildInfoColumn(Icons.home, 'Address', _address),
+            _buildInfoColumn(Icons.location_on, 'Location', _location),
+            _buildInfoColumn(Icons.calendar_today, 'Created At', _createdAt),
             const SizedBox(height: 15), // Added spacing before the logout button
           ],
         ),
