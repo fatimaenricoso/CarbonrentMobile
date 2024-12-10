@@ -54,7 +54,6 @@ class _DailyCollectedState extends State<DailyCollected> {
 
   Future<Map<String, Map<String, dynamic>>> getDailyTotals() async {
     if (currentUserZone == null) return {};
-
     QuerySnapshot snapshot = await paymentCollection
         .where('zone', isEqualTo: currentUserZone)
         .get();
@@ -128,7 +127,7 @@ class _DailyCollectedState extends State<DailyCollected> {
                 ),
                 child: Center(
                   child: Text(
-                    'Vendor Details:   $date',
+                    'Vendor Details: $date',
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -161,7 +160,7 @@ class _DailyCollectedState extends State<DailyCollected> {
                                   style: const TextStyle(fontSize: 11),
                                 ),
                                 Text(
-                                  'Amount:  ₱${amount.toStringAsFixed(2)}',
+                                  'Amount: ₱${amount.toStringAsFixed(2)}',
                                   style: const TextStyle(fontSize: 11),
                                 ),
                               ],
@@ -199,7 +198,7 @@ class _DailyCollectedState extends State<DailyCollected> {
           children: [
 /*             Icon(Icons.receipt_rounded, color: Colors.white),
  */            SizedBox(width: 15),
-            Text("Collected Amount", style: TextStyle(color: Colors.white, fontSize: 16)),
+            Text("Daily Collection", style: TextStyle(color: Colors.white, fontSize: 16)),
           ],
         ),
         backgroundColor: Colors.green,
@@ -211,29 +210,34 @@ class _DailyCollectedState extends State<DailyCollected> {
           const SizedBox(height: 16), // Space between AppBar and Search Bar
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: TextField(
-              controller: _searchController,
-              onChanged: (value) {
-                setState(() {
-                  // Filter dates based on the search input
-                  filteredDates = dailyTotals?.keys
-                      .where((date) => date.toLowerCase().contains(value.toLowerCase()))
-                      .toList();
-                });
-              },
-              decoration: InputDecoration(
-                hintText: 'Search a Date',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(color: Colors.green), // Border color
+            child: Container(
+              width: 331,
+              height: 45, // Decreased height
+              child: TextField(
+                controller: _searchController,
+                onChanged: (value) {
+                  setState(() {
+                    // Filter dates based on the search input
+                    filteredDates = dailyTotals?.keys
+                        .where((date) => date.toLowerCase().contains(value.toLowerCase()))
+                        .toList();
+                  });
+                },
+                decoration: InputDecoration(
+                  hintText: 'Enter Collection Date',
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0), // Adjust padding
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: const BorderSide(color: Colors.green), // Border color
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: Colors.green.shade700), // Focused border color
+                  ),
+                  suffixIcon: const Icon(Icons.search, color: Colors.green), // Icon color
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(color: Colors.green.shade700), // Focused border color
-                ),
-                suffixIcon: const Icon(Icons.search, color: Colors.green), // Icon color
+                style: const TextStyle(fontSize: 12),
               ),
-              style: const TextStyle(fontSize: 14),
             ),
           ),
           Expanded(
@@ -280,9 +284,10 @@ class _DailyCollectedState extends State<DailyCollected> {
                       },
                       child: Card(
                         color: Colors.white,
-                        elevation: 3,
+                        elevation: 0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
+                          side: const BorderSide(color: Colors.green, width: 1), // Add green border
                         ),
                         margin: const EdgeInsets.symmetric(vertical: 10),
                         child: Padding(
@@ -331,7 +336,7 @@ class _DailyCollectedState extends State<DailyCollected> {
                                 'Total Amount: ₱${totalAmount.toStringAsFixed(2)}',
                                 style: const TextStyle(
                                   fontSize: 14,
-                                   fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.black,
                                 ),
                               ),

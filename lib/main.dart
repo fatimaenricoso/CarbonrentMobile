@@ -1,5 +1,6 @@
 import 'package:ambulantcollector/firebase_option.dart';
-import 'package:ambulantcollector/screens/dashboardvendor.dart';
+import 'package:ambulantcollector/screens/collectordashboard.dart';
+// import 'package:ambulantcollector/screens/dashboardvendor.dart';
 import 'package:ambulantcollector/screens/unifiedloginscreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -67,9 +68,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const UnifiedLoginScreen(),
+      home:  UnifiedLoginScreen(),
       routes: {
-        '/dashboardVendor': (_) => DashboardVendor(),
+        '/dashboardVendor': (_) => Dashboard(),
       },
     );
   }

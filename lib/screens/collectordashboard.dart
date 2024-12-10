@@ -37,6 +37,8 @@ class _DashboardState extends State<Dashboard> {
     try {
       String currentEmail = FirebaseAuth.instance.currentUser?.email ?? '';
 
+      print('Current email: $currentEmail');
+
       if (currentEmail.isNotEmpty) {
         // Fetch collector data based on email
         final collectorSnapshot = await FirebaseFirestore.instance
@@ -47,6 +49,7 @@ class _DashboardState extends State<Dashboard> {
 
         if (collectorSnapshot.docs.isNotEmpty) {
           currentZone = collectorSnapshot.docs.first.data()['zone'] ?? '';
+          print('Current zone: $currentZone');
           if (mounted) {
             setState(() {}); // Trigger rebuild with updated zone
           }
@@ -91,6 +94,10 @@ class _DashboardState extends State<Dashboard> {
     DateTime startOfWeek = now.subtract(Duration(days: now.weekday - 1));
     DateTime endOfWeek = startOfWeek.add(const Duration(days: 6));
 
+    print('Current date: $now');
+    print('Start of week: $startOfWeek');
+    print('End of week: $endOfWeek');
+
     return FirebaseFirestore.instance
         .collection('payment_ambulant')
         .where('zone', isEqualTo: currentZone)
@@ -102,9 +109,14 @@ class _DashboardState extends State<Dashboard> {
         Timestamp paymentDate = doc['date'];
         DateTime paymentDateTime = paymentDate.toDate();
 
+        print('Payment date: $paymentDateTime');
+
+        // Ensure the payment date is within the current week
         if (paymentDateTime.isAfter(startOfWeek) && paymentDateTime.isBefore(endOfWeek.add(const Duration(days: 1)))) {
           String dayOfWeek = DateFormat('E').format(paymentDateTime);
           double totalAmount = (doc['total_amount'] as num).toDouble();
+
+          print('Payment day: $dayOfWeek, Amount: $totalAmount');
 
           if (weeklyPayments.containsKey(dayOfWeek)) {
             weeklyPayments[dayOfWeek] = weeklyPayments[dayOfWeek]! + totalAmount;
@@ -113,6 +125,7 @@ class _DashboardState extends State<Dashboard> {
           }
         }
       }
+      print('Weekly payments: $weeklyPayments');
       return weeklyPayments;
     });
   }
@@ -165,23 +178,95 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 
+  Future<void> _confirmLogout() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          elevation: 4,
+          backgroundColor: Colors.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 60, // Increased height
+                decoration: const BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(12.0)),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Confirm Logout',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: Text('Are you sure you want to logout?'),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    child: const Text('No', style: TextStyle(color: Colors.black)),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  TextButton(
+                    child: const Text('Yes', style: TextStyle(color: Colors.green)),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      _logout();
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _logout() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const UnifiedLoginScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _selectedIndex == 2
           ? AppBar(
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+              title: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
 /*             Icon(Icons.dashboard, color: Colors.white),
- */            SizedBox(width: 8),
-            Text("Dashboard", style: TextStyle(color: Colors.white, fontSize: 16)),
-          ],
-        ),
-        backgroundColor: Colors.green,
-        elevation: 1.0,
-        centerTitle: true,
-      )
+ */                  SizedBox(width: 8),
+                  Text("Collector Dashboard", style: TextStyle(color: Colors.white, fontSize: 16)),
+                ],
+              ),
+              backgroundColor: Colors.green,
+              elevation: 1.0,
+              centerTitle: true,
+            )
           : null,
       body: _selectedIndex == 2
           ? SingleChildScrollView(
@@ -219,9 +304,9 @@ class _DashboardState extends State<Dashboard> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Text(
-                                    'Collected Today',
-                                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                                  ),
+                                      'Collected Today',
+                                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                                    ),
                                   Text(
                                     '₱${totalAmountPaidToday.toStringAsFixed(2)}', // Display amount in PHP
                                     style: const TextStyle(
@@ -233,14 +318,7 @@ class _DashboardState extends State<Dashboard> {
                                 ],
                               ),
                               GestureDetector(
-                                onTap: () {
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const UnifiedLoginScreen(),
-                                    ),
-                                  );
-                                },
+                                onTap: _confirmLogout,
                                 child: const Row(
                                   children: [
                                     Icon(Icons.logout, color: Colors.green),
@@ -307,25 +385,11 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Widget _buildDynamicBarChart(Map<String, double> data) {
+    List<String> daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     List<BarChartGroupData> barGroups = [];
-    double maxValue = data.values.reduce((a, b) => a > b ? a : b);
-
-    // Determine the interval based on the maximum value
-    double interval;
-    if (maxValue > 3000) {
-      interval = 1000;
-    } else if (maxValue > 1500) {
-      interval = 500;
-    } else if (maxValue > 500) {
-      interval = 250;
-    } else if (maxValue > 100) {
-      interval = 100;
-    } else {
-      interval = 50;
-    }
+    double maxValue = 0.0;
 
     // Ensure the days of the week are in the correct order
-    List<String> daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     daysOfWeek.forEach((day) {
       double totalAmount = data[day] ?? 0.0;
       barGroups.add(
@@ -342,7 +406,24 @@ class _DashboardState extends State<Dashboard> {
           showingTooltipIndicators: [], // Set to an empty list to remove tooltips
         ),
       );
+      if (totalAmount > maxValue) {
+        maxValue = totalAmount;
+      }
     });
+
+    // Determine the interval based on the maximum value
+    double interval;
+    if (maxValue > 3000) {
+      interval = 1000;
+    } else if (maxValue > 1500) {
+      interval = 500;
+    } else if (maxValue > 500) {
+      interval = 250;
+    } else if (maxValue > 100) {
+      interval = 100;
+    } else {
+      interval = 50;
+    }
 
     return Container(
       height: 250, // Increased height to accommodate two-line text

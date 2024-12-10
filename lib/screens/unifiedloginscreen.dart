@@ -1,4 +1,6 @@
 import 'package:ambulantcollector/reusable_widgets/reusable_widgets.dart';
+import 'package:ambulantcollector/screens/EnforcerDashboard.dart';
+import 'package:ambulantcollector/screens/StallDashboard.dart'; // Import StallDashboard
 import 'package:ambulantcollector/screens/appraisalDashboard.dart';
 import 'package:ambulantcollector/screens/collectordashboard.dart';
 import 'package:ambulantcollector/screens/reset_password.dart';
@@ -128,6 +130,42 @@ class _UnifiedLoginScreenState extends State<UnifiedLoginScreen> {
       );
 
       if (userCredential.user != null) {
+        // Check if the user exists in the admin_users collection
+        final QuerySnapshot adminSnapshot = await FirebaseFirestore.instance
+            .collection('admin_users')
+            .where('email', isEqualTo: email)
+            .get();
+
+        if (adminSnapshot.docs.isNotEmpty) {
+          // Check if the user has the position 'Collector'
+          final adminUser = adminSnapshot.docs.first.data() as Map<String, dynamic>;
+          if (adminUser['position'] == 'Collector') {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const StallDashboard()),
+            );
+            return;
+          }
+        }
+
+        // Check if the user exists in the admin_users collection
+        final QuerySnapshot adminSnapshotEnforcer = await FirebaseFirestore.instance
+            .collection('admin_users')
+            .where('email', isEqualTo: email)
+            .get();
+
+        if (adminSnapshotEnforcer.docs.isNotEmpty) {
+          // Check if the user has the position 'Enforcer'
+          final adminUser = adminSnapshotEnforcer.docs.first.data() as Map<String, dynamic>;
+          if (adminUser['position'] == 'Enforcer') {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const EnforcerDashboard()),
+            );
+            return;
+          }
+        }
+
         // Check if the user exists in the appraisal_user collection
         final QuerySnapshot snapshot = await FirebaseFirestore.instance
             .collection('appraisal_user')
@@ -253,7 +291,7 @@ class _UnifiedLoginScreenState extends State<UnifiedLoginScreen> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ResetPassword()),
+            MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
           );
         },
         child: const Text(
